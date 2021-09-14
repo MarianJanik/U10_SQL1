@@ -1,5 +1,4 @@
 1)
-
 SELECT name,address FROM FamousVilla 
 WHERE name LIKE '%vila%'
 AND architecturalStyle<>'funkcionalismus' 
@@ -8,8 +7,8 @@ AND constructionCompleted - constructionStated > 1
 
 (výsledkem je žádný záznam, neboť všechny funkcion. vily se stihly do dvou let)
 
-2)
 
+2)
 SELECT name,address FROM FamousVilla 
 WHERE name LIKE '%vila%'
 AND address LIKE '%Brno 1-Pisárky'
@@ -18,3 +17,32 @@ AND address LIKE '%Brno 1-Pisárky'
 Bassova vila	Lipová 22, cp. 234, Brno 1-Pisárky
 Haasova vila	Lipová 43, cp. 739, Brno 1-Pisárky
 )
+
+
+3)
+INSERT INTO FamousVilla (id,name,originalOwner,architect,constructionStated,
+                         constructionCompleted,architecturalStyle,address)
+VALUES (10,'luxusní villa u moře','neznámý', 'neznámý',2018,2020,'moderní','Rogoznica'),
+(10,'luxusní villa s bazénem','BROKER realitní kancelář', 'neznámý',2018,2020,'moderní',
+ 'v zátoce Rijeka dubrovačka a poblíž pramene řeky Ombla');
+
+
+4)
+UPDATE FamousVilla SET architect='Norbert Schlesinger',constructionCompleted=1935
+WHERE name='Löw-Beerova vila';
+
+SELECT * FROM FamousVilla //---- řádek je kontrolní výpis
+
+
+5)
+DELETE FROM FamousVilla
+WHERE name LIKE '%vila%' AND (architecturalStyle='secese' OR architecturalStyle='purismus');
+
+
+6)
+INSERT INTO FamousVilla (id,name,originalOwner,architect,constructionStated,architecturalStyle,address)
+VALUES (10,'-','-','Richard Načrtl',2021,'moderna','Karlovská 624, Dolní Kounice');
+
+
+SELECT * FROM FamousVilla  //---- řádek je kontrolní výpis
+ORDER BY id ASC		   //---- řazení dle id.
