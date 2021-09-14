@@ -1,0 +1,20 @@
+1)
+
+SELECT name,address FROM FamousVilla 
+WHERE name LIKE '%vila%'
+AND architecturalStyle<>'funkcionalismus' 
+AND architecturalStyle<>'functionalismus' 
+AND constructionCompleted - constructionStated > 1
+
+(výsledkem je žádný záznam, neboť všechny funkcion. vily se stihly do dvou let)
+
+2)
+
+SELECT name,address FROM FamousVilla 
+WHERE name LIKE '%vila%'
+AND address LIKE '%Brno 1-Pisárky'
+
+(Výsledek:
+Bassova vila	Lipová 22, cp. 234, Brno 1-Pisárky
+Haasova vila	Lipová 43, cp. 739, Brno 1-Pisárky
+)
