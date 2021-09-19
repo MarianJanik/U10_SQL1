@@ -1,7 +1,6 @@
 1)
 SELECT name,address FROM FamousVilla 
-WHERE name LIKE '%vila%'
-AND architecturalStyle<>'funkcionalismus' 
+WHERE architecturalStyle<>'funkcionalismus' 
 AND architecturalStyle<>'functionalismus' 
 AND constructionCompleted - constructionStated > 1
 
@@ -10,12 +9,12 @@ AND constructionCompleted - constructionStated > 1
 
 2)
 SELECT name,address FROM FamousVilla 
-WHERE name LIKE '%vila%'
-AND address LIKE '%Brno 1-Pisárky'
+WHERE address LIKE '%Brno 1-Pisárky'
 
 (Výsledek:
 Bassova vila	Lipová 22, cp. 234, Brno 1-Pisárky
 Haasova vila	Lipová 43, cp. 739, Brno 1-Pisárky
+Rodinný dum Herminy Weiglové	Kalvodova 2, cp. 1210, Brno 1-Pisárky
 )
 
 
@@ -23,7 +22,7 @@ Haasova vila	Lipová 43, cp. 739, Brno 1-Pisárky
 INSERT INTO FamousVilla (id,name,originalOwner,architect,constructionStated,
                          constructionCompleted,architecturalStyle,address)
 VALUES (10,'luxusní villa u moře','neznámý', 'neznámý',2018,2020,'moderní','Rogoznica'),
-(10,'luxusní villa s bazénem','BROKER realitní kancelář', 'neznámý',2018,2020,'moderní',
+(11,'luxusní villa s bazénem','BROKER realitní kancelář', 'neznámý',2018,2020,'moderní',
  'v zátoce Rijeka dubrovačka a poblíž pramene řeky Ombla');
 
 
@@ -36,12 +35,12 @@ SELECT * FROM FamousVilla //---- řádek je kontrolní výpis
 
 5)
 DELETE FROM FamousVilla
-WHERE name LIKE '%vila%' AND (architecturalStyle='secese' OR architecturalStyle='purismus');
+WHERE architecturalStyle='secese' OR architecturalStyle='purismus';
 
 
 6)
-INSERT INTO FamousVilla (id,name,originalOwner,architect,constructionStated,architecturalStyle,address)
-VALUES (10,'-','-','Richard Načrtl',2021,'moderna','Karlovská 624, Dolní Kounice');
+INSERT INTO FamousVilla (id,architect,constructionStated,architecturalStyle,address)
+VALUES (10,'Richard Načrtl',2021,'moderna','Karlovská 624, Dolní Kounice');
 
 
 SELECT * FROM FamousVilla  //---- řádek je kontrolní výpis
