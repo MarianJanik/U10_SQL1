@@ -9,7 +9,7 @@ AND constructionCompleted - constructionStated > 1
 
 2)
 SELECT name,address FROM FamousVilla 
-WHERE address LIKE '%Brno 1-Pisárky'
+WHERE address LIKE '%Pisárky%'
 
 (Výsledek:
 Bassova vila	Lipová 22, cp. 234, Brno 1-Pisárky
